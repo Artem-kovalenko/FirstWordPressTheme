@@ -1874,29 +1874,6 @@ body {
 	display: block;
 	color: white;
 	text-decoration: none;
-	display: block;
-	text-align: center;
-	border: 1px solid #ff1637;
-	border-radius: 30px;
-	width: 170px;
-	margin-top: 30px;
-	padding: 9px;
-	background-color: #ff1637;
-	transition: all 0.5s;
-}
-.blog__info-text .button:hover {
-	background-color: #f1c30f;
-	border-color: #f1c30f;
-}
-.blog__info:hover h3,
-.blog__info-text ul li:hover a {
-	color: #ff1637;
-}
-/*============= Измененные стили второй колонки ==============*/
-.blog__info-text .button-2 {
-	display: block;
-	color: white;
-	text-decoration: none;
 	text-align: center;
 	border: 1px solid #f1c30f;
 	background-color: #f1c30f;
@@ -1906,13 +1883,13 @@ body {
 	padding: 9px;
 	transition: all 0.5s;
 }
-.blog__info-text .button-2:hover {
+.blog__info-text .button:hover {
 	background-color: #ff1637;
 	border-color: #ff1637;
 }
-.blog__info:hover h3.secondCol,
-.blog__info-text ul li:hover .secondBlockA {
-	color: #f1c30f;
+.blog__info:hover h3,
+.blog__info-text ul li:hover a {
+	color: #ff1637;
 }
 @media screen and (max-width: 767px) {
 	.blog__title h3 {

@@ -306,13 +306,13 @@
 			<div class="col-12">
 				<div class="journey__title">
 					<h2 class="global_h2">
-						Passion leads us here
+						<?php the_field('journey_title_1'); ?>
 					</h2>
 					<h3 class="global_h3">
-						Watch Our Journey
+						<?php the_field('journey_title_2'); ?>
 					</h3>
 					<p class="global_p">
-						Curabitur mollis bibendum luctus. Duis suscipit vitae dui sed suscipit. Vestibulum auctor nunc vitae diam eleifend, in maximus metus sollicitudin. Quisque vitae sodales lectus. Nam porttitor justo sed mi finibus, vel tristique risus faucibus.
+						<?php the_field('journey_text'); ?>
 					</p>
 				</div>
 			</div>
@@ -323,7 +323,7 @@
 					<img src="<?php echo get_template_directory_uri(); ?>/assets/img/iphone-img.png" alt="">
 					<div class="video__bgc__img">
 						<img src="<?php echo get_template_directory_uri(); ?>/assets/img/iphone-bg1.jpg" alt="">
-						<a href="https://www.youtube.com/watch?v=7e90gBu4pas" target="_blank">
+						<a href="<?php the_field('video_link'); ?>" target="_blank">
 							<i class="fa fa-play" aria-hidden="true"></i>
 						</a>	
 					</div>
@@ -341,104 +341,62 @@
 			<div class="col-12">
 				<div class="packages__title">
 					<h2 class="global_h2">
-						We have flexible pricing
+						<?php the_field('packages_title_1'); ?>
 					</h2>
 					<h3 class="global_h3">
-						Awaza's Packages
+						<?php the_field('packages_title_2'); ?>
 					</h3>
 					<p class="global_p">
-						Curabitur mollis bibendum luctus. Duis suscipit vitae dui sed suscipit. Vestibulum auctor nunc vitae diam eleifend, in maximus metus sollicitudin. Quisque vitae sodales lectus. Nam porttitor justo sed mi finibus, vel tristique risus faucibus.
+						<?php the_field('packages_text'); ?>
 					</p>
 				</div>
 			</div>
 		</div>
 		<div class="row">
 			<div class="packages__content">
-				<div class="col-12 col-md-6 col-lg-4">
-					<div class="packages__block">
-						<div class="packages__type ">
-							<h4>Standard</h4>
-							<div class="packages__price">
-								<span class="dollar">$</span>
-								<span class="number">22</span>
-								<span class="text">Monthly</span>
-							</div>
-							<div class="packages__rating">
-								<i class="fa fa-star-o" aria-hidden="true"></i>
-								<i class="fa fa-star-o" aria-hidden="true"></i>
-								<i class="fa fa-star-o" aria-hidden="true"></i>
-								<i class="fa fa-star-o" aria-hidden="true"></i>
-								<i class="fa fa-star-o" aria-hidden="true"></i>
-							</div>
-						</div>
-						<div class="packages__info">
-							<p><i class="fa fa-check" aria-hidden="true"></i> Full Access</p>
-							<p><i class="fa fa-check" aria-hidden="true"></i>Unlimited Bandwidth</p>
-							<p><i class="fa fa-check" aria-hidden="true"></i>Email Accounts</p>
-							<p><i class="fa fa-check" aria-hidden="true"></i>8 Free Forks Every Month</p>
-						</div>
-						<div class="packages__buttonRelative">
-							<a href="" class="packages__button" target="_blank">Choose plan</a>
-						</div>
-
-					</div>
-				</div>
-				<div class="col-12 col-md-6 col-lg-4">
-					<div class="packages__block-2">
-						<div class="packages__type-2 ">
-							<h4>Advance</h4>
-							<div class="packages__price">
-								<span class="dollar-2">$</span>
-								<span class="number-2">55</span>
-								<span class="text-2">Monthly</span>
-							</div>
-							<div class="packages__rating-2">
-								<i class="fa fa-star-o" aria-hidden="true"></i>
-								<i class="fa fa-star-o" aria-hidden="true"></i>
-								<i class="fa fa-star-o" aria-hidden="true"></i>
-								<i class="fa fa-star-o" aria-hidden="true"></i>
-								<i class="fa fa-star-o" aria-hidden="true"></i>
+				<?php
+				if( have_rows('packages_offer_repeater') ):
+					while ( have_rows('packages_offer_repeater') ) : the_row();
+						?>
+						<div class="col-12 col-md-6 col-lg-4">
+							<div class="packages__block">
+								<div class="packages__type ">
+									<h4><?php the_sub_field('title'); ?></h4>
+									<div class="packages__price">
+										<span class="dollar">$</span>
+										<span class="number"><?php the_sub_field('price'); ?></span>
+										<span class="text"><?php the_sub_field('offer_duration'); ?></span>
+									</div>
+									<div class="packages__rating">
+										<i class="fa fa-star-o" aria-hidden="true"></i>
+										<i class="fa fa-star-o" aria-hidden="true"></i>
+										<i class="fa fa-star-o" aria-hidden="true"></i>
+										<i class="fa fa-star-o" aria-hidden="true"></i>
+										<i class="fa fa-star-o" aria-hidden="true"></i>
+									</div>
+								</div>
+								<div class="packages__info">
+									<?php
+									if( have_rows('text_repeater') ):
+										while ( have_rows('text_repeater') ) : the_row();
+											?>
+											<p><i class="fa fa-check" aria-hidden="true"></i><?php the_sub_field('text'); ?></p>
+											<?php
+										endwhile;
+									else :
+									endif;
+									?>
+								</div>
+								<div class="packages__buttonRelative">
+									<a href="<?php the_sub_field('offer_button_link'); ?>" class="packages__button" target="_blank"><?php the_sub_field('offer_button_text'); ?></a>
+								</div>
 							</div>
 						</div>
-						<div class="packages__info">
-							<p><i class="fa fa-check" aria-hidden="true"></i> Full Access</p>
-							<p><i class="fa fa-check" aria-hidden="true"></i>Unlimited Bandwidth</p>
-							<p><i class="fa fa-check" aria-hidden="true"></i>Email Accounts</p>
-							<p><i class="fa fa-check" aria-hidden="true"></i>8 Free Forks Every Month</p>
-						</div>
-						<div class="packages__buttonRelative">
-							<a href="" class="packages__button-2" target="_blank">Choose plan</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-12 col-md-6 col-lg-4">
-					<div class="packages__block">
-						<div class="packages__type ">
-							<h4>Standard</h4>
-							<div class="packages__price">
-								<span class="dollar">$</span>
-								<span class="number">22</span>
-								<span class="text">Monthly</span>
-							</div>
-							<div class="packages__rating">
-								<i class="fa fa-star-o" aria-hidden="true"></i>
-								<i class="fa fa-star-o" aria-hidden="true"></i>
-								<i class="fa fa-star-o" aria-hidden="true"></i>
-								<i class="fa fa-star-o" aria-hidden="true"></i>
-								<i class="fa fa-star-o" aria-hidden="true"></i>
-							</div>
-						</div>
-						<div class="packages__info">
-							<p><i class="fa fa-check" aria-hidden="true"></i> Full Access</p>
-							<p><i class="fa fa-check" aria-hidden="true"></i>Unlimited Bandwidth</p>
-							<p><i class="fa fa-check" aria-hidden="true"></i>Email Accounts</p>
-							<p><i class="fa fa-check" aria-hidden="true"></i>8 Free Forks Every Month</p>
-						</div>
-						<div class="packages__buttonRelative">
-							<a href="" class="packages__button" target="_blank">Choose plan</a>
-						</div>
-					</div>
-				</div>
+						<?php
+					endwhile;
+				else :
+				endif;
+				?>
 			</div>
 		</div>
 	</div>
@@ -452,37 +410,27 @@
 			<div class="col-12 col-md-6 col-lg-6">
 				<div class="partners__content">
 					<div class="partners__title">
-						<h3 class="global_h3">
-							Our Partners
-						</h3>
-						<p class="global_p">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mauris arcu, lobortis id interdum vitae, interdum eget elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mauris arcu, lobortis id interdum vitae, interdum eget elit.
-						</p>
-						<a href="" class="button" target="_blank">Become a client</a>
+						<h3 class="global_h3"><?php the_field('partners_title'); ?></h3>
+						<p class="global_p"><?php the_field('partners_text'); ?></p>
+						<a href="<?php the_field('partners_button_link'); ?>" class="button" target="_blank"><?php the_field('partners_button_text'); ?></a>
 					</div>
 				</div>
 			</div>
 			<div class="main__col col-12 col-md-6 col-lg6">
-				<div class="col-md-6 col-sm-6">
-					<div class="partners__img">
-						<img src="http://www.themesindustry.com/html/awaza-2019/images/client-one.png" alt="">
-					</div>
-				</div>
-				<div class="col-md-6 col-sm-6">
-					<div class="partners__img">
-						<img src="http://www.themesindustry.com/html/awaza-2019/images/client-one.png" alt="">
-					</div>
-				</div>
-				<div class="col-md-6 col-sm-6">
-					<div class="partners__img">
-						<img src="http://www.themesindustry.com/html/awaza-2019/images/client-one.png" alt="">
-					</div>
-				</div>
-				<div class="col-md-6 col-sm-6">
-					<div class="partners__img">
-						<img src="http://www.themesindustry.com/html/awaza-2019/images/client-one.png" alt="">
-					</div>
-				</div>
+				<?php
+				if( have_rows('partnerst_imgs') ):
+					while ( have_rows('partnerst_imgs') ) : the_row();
+						?>
+						<div class="col-md-6 col-sm-6">
+							<div class="partners__img">
+								<img src="<?php the_sub_field('image'); ?>" alt="">
+							</div>
+						</div>
+						<?php
+					endwhile;
+				else :
+				endif;
+				?>
 			</div>
 		</div>
 	</div>
@@ -495,61 +443,48 @@
 		<div class="row">
 			<div class="blog__title">
 				<h2 class="global_h2">
-					Read our
+					<?php the_field('blog_title_1'); ?>
 				</h2>
 				<h3 class="global_h3">
-					Latest Blog
+					<?php the_field('blog_title_2'); ?>
 				</h3>
 				<p class="global_p">
-					Curabitur mollis bibendum luctus. Duis suscipit vitae dui sed suscipit. Vestibulum auctor nunc vitae diam eleifend, in maximus metus sollicitudin. Quisque vitae sodales lectus. Nam porttitor justo sed mi finibus, vel tristique risus faucibus.
+					<?php the_field('blog_text'); ?>
 				</p>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-12 col-md-6 col-lg-6">
-				<div class="blog__info">
-					<div class="blog__info-img">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/img/blog-img8.jpg" alt="">
+			<?php
+			if( have_rows('blog_repeater') ):
+				while ( have_rows('blog_repeater') ) : the_row();
+					?>
+					<div class="col-12 col-md-6 col-lg-6">
+						<div class="blog__info">
+							<div class="blog__info-img">
+								<img src="<?php the_sub_field('image'); ?>" alt="">
+							</div>
+							<div class="blog__info-text">
+								<h3 class="global_h3">
+									<?php the_sub_field('title'); ?>
+								</h3>
+								<ul>
+									<li><a href=""><i class="fa fa-calendar-o" aria-hidden="true"></i> <?php the_sub_field('date'); ?></a></li>
+									<li><a href=""><i class="fa fa-user" aria-hidden="true"></i> <?php the_sub_field('name'); ?></a></li>
+									<li><a href=""><i class="fa fa-comment-o" aria-hidden="true"></i> <?php the_sub_field('comments_amount'); ?></a></li>
+								</ul>
+								<p class="global_p">
+									<?php the_sub_field('text'); ?>
+								</p>
+								<a href="<?php the_sub_field('button_link'); ?>"
+								class="button" target="_blank"><?php the_sub_field('button_text'); ?></a>
+							</div>
+						</div>
 					</div>
-					<div class="blog__info-text">
-						<h3 class="global_h3">
-							Splash Your Ideas With Us
-						</h3>
-						<ul>
-							<li><a href=""><i class="fa fa-calendar-o" aria-hidden="true"></i> Apr 13</a></li>
-							<li><a href=""><i class="fa fa-user" aria-hidden="true"></i> Bill</a></li>
-							<li><a href=""><i class="fa fa-comment-o" aria-hidden="true"></i> 5</a></li>
-						</ul>
-						<p class="global_p">
-							Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text since the 1500s, when an unknown printer took a galley.
-						</p>
-						<a href=""
-						class="button" target="_blank">Read More</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-12 col-md-6 col-lg-6">
-				<div class="blog__info">
-					<div class="blog__info-img">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/img/blog-img9.jpg" alt="">
-					</div>
-					<div class="blog__info-text">
-						<h3 class="secondCol global_h3">
-							Creating Better Experience
-						</h3>
-						<ul>
-							<li><a class="secondBlockA" href=""><i class="fa fa-calendar-o" aria-hidden="true"></i> Feb 28</a></li>
-							<li><a class="secondBlockA" href=""><i class="fa fa-user" aria-hidden="true"></i> Barry</a></li>
-							<li><a class="secondBlockA" href=""><i class="fa fa-comment-o" aria-hidden="true"></i> 5</a></li>
-						</ul>
-						<p class="global_p">
-							Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text since the 1500s, when an unknown printer took a galley.
-						</p>
-						<a href=""
-						class="button-2" target="_blank">Read More</a>
-					</div>
-				</div>
-			</div>
+					<?php
+				endwhile;
+			else :
+			endif;
+			?>
 		</div>
 	</div>
 </section>
@@ -561,18 +496,18 @@
 		<div class="contact__title">
 			<div>
 				<h2 class="global_h2">
-					Contact info
+					<?php the_field('contact_title_1'); ?>
 				</h2>
 				<h3 class="global_h3">
-					Get In Touch With Us
+					<?php the_field('contact_title_2'); ?>
 				</h3>
 				<p class="global_p">
-					Curabitur mollis bibendum luctus. Duis suscipit vitae dui sed suscipit. Vestibulum auctor nunc vitae diam eleifend.
+					<?php the_field('contact_text'); ?>
 				</p>
 				<ul>
-					<li><i class="fa fa-mobile" aria-hidden="true"></i> +(34) 609 33 17 54</li>
-					<li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="#">email@website.com</a></li>
-					<li><i class="fa fa-map-marker" aria-hidden="true"></i> 201 Oak Street Building 27 Manchester, USA</li>
+					<li><i class="fa fa-mobile" aria-hidden="true"></i><?php the_field('contact_phone'); ?></li>
+					<li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="<?php the_field('contact_email_link'); ?>"><?php the_field('contact_email'); ?></a></li>
+					<li><i class="fa fa-map-marker" aria-hidden="true"></i><?php the_field('contact_adress'); ?></li>
 				</ul>
 			</div>
 		</div>
@@ -605,7 +540,7 @@
 				</div>
 			</div> 
 		</div>
-		<input type="button" value="SUBMIT REQUEST" id="button">
+		<input type="button" value="<?php the_field('contact_button_text'); ?>" id="button">
 	</div>
 </section>
 <!-- End Contact Section -->
