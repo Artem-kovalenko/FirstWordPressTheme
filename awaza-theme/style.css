@@ -72,11 +72,11 @@ body {
 
 /*======================= Start Header ======================= */
 .header {
-	background-color: transparent;	
-	padding: 18px 25px 18px 50px;
-	height: 64px;
+	background-color: #FFFAFA;
+	height: 70px;
 	display: flex;
-	justify-content: space-between;
+	align-items:center;
+	justify-content: space-around;
 	text-align: center;
 	flex-wrap: wrap;
 	transition: all 1s;
@@ -85,24 +85,22 @@ body {
 	left: 0;
 	width: 100%;
 	z-index: 1;
+	box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.35);
 }
 .header.scrolled {
-	background-color: white;
 	box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.35);
+	height: 45px;
 }
 .header__logo  {
 	display: block;
-	background-image: url(http://www.themesindustry.com/html/awaza-2019/images/logo-white.png);
+	background-image: url(http://www.themesindustry.com/html/awaza-2019/images/logo-black.png);
 	background-repeat: no-repeat;
 	width: 150px;
-	height: 50px;
+	height: 30px;
 	transition: all 1s;
 }
-.header__logo.scrolled {
-	background-image: url(http://www.themesindustry.com/html/awaza-2019/images/logo-black.png);
-}
 .header__nav ul {
-	margin: 0;
+	margin: 0 0 0 50px;
 	display: flex;
 }
 .header__nav ul li {
@@ -112,34 +110,31 @@ body {
 .header__nav ul li a {
 	font-family: 'Montserrat', sans-serif;
 	font-size: 14px;
-	text-decoration: none;
-	color: #ffffff;
+	color: black;
 	text-decoration: none;
 	transition: all 0.5s;
 }
 .header__nav ul li a:hover {
 	color: #ff1637;
 }
-.header__nav ul > ul li {
-	margin: 0 15px;
-	font-size: 16px;
+.icons-block ul {
+	list-style: none;
+	display: flex;
 }	
-.header__nav__a.scrolled {
+.icons-block ul li {
+	margin: 0 15px;
+}	
+.icons-block ul li a {
 	color: black;
 }
 .burger {
 	display: inline-block;
 	margin-right: 15px;
 }
-.burger span:nth-child(1).scrolled,
-.burger span:nth-child(2).scrolled,
-.burger span:nth-child(3).scrolled  {
-	background-color: black;
-}
 .burger span:nth-child(1),
 .burger span:nth-child(3) {
 	display: block;
-	background-color: #fff;
+	background-color: black;
 	width: 22px;
 	height: 1px;
 	margin: 5px auto;
@@ -147,7 +142,7 @@ body {
 }
 .burger span:nth-child(2) {
 	display: block;
-	background-color: #fff;
+	background-color: black;
 	width: 32px;
 	height: 0.5px;
 	margin: 5px auto;
@@ -197,9 +192,6 @@ body {
 .burger__navigation_menu__img {
 	margin-bottom: 90px;
 }
-.burger__navigation_menu .col-6 {
-	padding: 0;
-}
 .navigation__container {
 	display: flex;
 	flex-wrap: wrap;
@@ -207,34 +199,32 @@ body {
 	width: 620px;
 	margin: auto;
 }
-.navigation__container a {
+.burger-nav-new ul {
+	list-style: none;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	text-align: center;
+}
+.burger-nav-new ul li a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid #fff;
+	border-radius: 5px;
+	min-width: 120px;
+	min-height: 70px;
+	background-color: #fff;
+	font-size: 20px;
 	text-decoration: none;
+	color: black;
+	transition: all 0.5s;
+	margin: 0 10px 50px;
 }
-.navigation__container a:hover span {
-	color: #ffffff;
-}
-.navigation__container a:hover .navigation {
-	color: #ffffff;
+.burger-nav-new ul li a:hover {
 	border: 1px solid #ff1637;
 	background-color: #ff1637;
-}
-.navigation {
-	border: 1px solid #f5f5f5;
-	background-color: #f5f5f5;
-	padding: 16px 19px;
-	margin: 4px 4px;
-	font-size: 20px;
-	line-height: 27px;
-	color: #18191d;
-	text-transform: capitalize;
-	text-align: left;
-	transition: all 0.5s;
-}
-.navigation span {
-	color: #b9b9b9;
-	font-size: 25px;
-	line-height: 29px;
-	font-weight: 100;
+	color: #fff;
 }
 .findUs {
 	margin-top: 50px;
@@ -297,6 +287,9 @@ body {
 	.burger__navigation_menu__closeBtn {
 		left:87%;
 		bottom:75%;
+	}
+	.icons-block {
+		margin:0 auto; 
 	}
 }
 @media screen and (max-width: 767px) {
@@ -462,10 +455,12 @@ body {
 
 /*======================= Start About Section =======================*/
 .about__img img {
+	margin-top: 15px;
 	width: 100%;
 	margin: 0 auto;
 }
 .about__main-title {
+	margin-top: 90px;
 	opacity: 0;
 	visibility: hidden;
 	transition: all 1.5s;
@@ -1333,7 +1328,7 @@ body {
 
 @media screen and (max-width: 1200px) {
 	.portfolio__title {
-		margin: 50px 15px;
+		margin: 100px 15px 50px;
 	}
 	.filtersMain {
 		display: flex;
